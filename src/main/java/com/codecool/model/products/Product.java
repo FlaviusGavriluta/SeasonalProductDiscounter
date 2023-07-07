@@ -1,7 +1,7 @@
-package com.codecool.seasonalproductdiscounter.model.products;
+package com.codecool.model.products;
 
-import com.codecool.seasonalproductdiscounter.model.enums.Color;
-import com.codecool.seasonalproductdiscounter.model.enums.Season;
+import com.codecool.model.enums.Color;
+import com.codecool.model.enums.Season;
 
 
 public record Product(String name, Color color, Season season, double price) {

@@ -1,10 +1,10 @@
-package com.codecool.seasonalproductdiscounter.ui;
+package com.codecool.ui;
 
-import com.codecool.seasonalproductdiscounter.model.offers.Offer;
-import com.codecool.seasonalproductdiscounter.model.products.Product;
-import com.codecool.seasonalproductdiscounter.service.discounts.DiscountProvider;
-import com.codecool.seasonalproductdiscounter.service.discounts.DiscountService;
-import com.codecool.seasonalproductdiscounter.service.products.ProductProvider;
+import com.codecool.model.offers.Offer;
+import com.codecool.model.products.Product;
+import com.codecool.service.discounts.DiscountProvider;
+import com.codecool.service.discounts.DiscountService;
+import com.codecool.service.products.ProductProvider;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

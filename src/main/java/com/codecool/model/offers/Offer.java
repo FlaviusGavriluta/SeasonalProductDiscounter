@@ -1,11 +1,10 @@
-package com.codecool.seasonalproductdiscounter.model.offers;
+package com.codecool.model.offers;
 
-import com.codecool.seasonalproductdiscounter.model.discounts.Discount;
-import com.codecool.seasonalproductdiscounter.model.products.Product;
+import com.codecool.model.discounts.Discount;
+import com.codecool.model.products.Product;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public record Offer(Product product, LocalDate date, List<Discount> discounts, double price) {
 

@@ -1,6 +1,6 @@
-package com.codecool.seasonalproductdiscounter.model.discounts;
+package com.codecool.model.discounts;
 
-import com.codecool.seasonalproductdiscounter.model.products.Product;
+import com.codecool.model.products.Product;
 
 import java.time.LocalDate;
 

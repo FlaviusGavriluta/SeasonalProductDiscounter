@@ -1,8 +1,8 @@
-package com.codecool.seasonalproductdiscounter.service.products;
+package com.codecool.service.products;
 
-import com.codecool.seasonalproductdiscounter.model.enums.Color;
-import com.codecool.seasonalproductdiscounter.model.enums.Season;
-import com.codecool.seasonalproductdiscounter.model.products.Product;
+import com.codecool.model.enums.Color;
+import com.codecool.model.enums.Season;
+import com.codecool.model.products.Product;
 
 import java.util.List;
 

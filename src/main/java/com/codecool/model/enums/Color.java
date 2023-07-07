@@ -1,4 +1,4 @@
-package com.codecool.seasonalproductdiscounter.model.enums;
+package com.codecool.model.enums;
 
 public enum Color {
     RED,

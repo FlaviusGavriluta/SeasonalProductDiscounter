@@ -1,4 +1,4 @@
-package com.codecool.seasonalproductdiscounter.model.enums;
+package com.codecool.model.enums;
 
 import java.time.LocalDate;
 import java.time.Month;
