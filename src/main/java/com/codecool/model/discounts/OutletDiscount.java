@@ -6,21 +6,22 @@ import com.codecool.model.products.Product;
 
 import java.time.LocalDate;
 
-public record SeasonalDiscount(Season favoredSeason) implements Discount {
+public record OutletDiscount(Season favoredSeason) implements Discount {
     @Override
     public boolean accepts(Product product, LocalDate date) {
         Season currentSeason = SeasonUtils.getSeasonFromDate(date);
-        return currentSeason == favoredSeason || currentSeason == favoredSeason.shift(1);
+        Season twoSeasonsAfterFavored = favoredSeason.shift(2);
+        return currentSeason == twoSeasonsAfterFavored;
     }
 
     @Override
     public String name() {
-        return "Sale Discount";
+        return "Outlet Discount";
     }
 
     @Override
     public int rate() {
-        return 10;
+        return 20;
     }
 
     @Override
