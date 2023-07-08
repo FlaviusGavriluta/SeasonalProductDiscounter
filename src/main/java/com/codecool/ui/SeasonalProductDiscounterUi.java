@@ -1,10 +1,14 @@
 package com.codecool.ui;
 
+import com.codecool.model.discounts.Discount;
 import com.codecool.model.offers.Offer;
 import com.codecool.model.products.Product;
 import com.codecool.service.discounts.DiscountProvider;
 import com.codecool.service.discounts.DiscountService;
 import com.codecool.service.products.ProductProvider;
+
+
+import static java.lang.System.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,33 +28,59 @@ public class SeasonalProductDiscounterUi {
         this.productProvider = productProvider;
         this.discountProvider = discountProvider;
         this.discountService = discounterService;
-        this.scanner = new Scanner(System.in);
+        this.scanner = new Scanner(in);
     }
 
     public void run() {
-        System.out.println("Welcome to Seasonal Product Discounter!\n");
+        out.println("Welcome to Seasonal Product Discounter!\n");
 
         printCatalog();
         printPromotions();
 
-        System.out.println("Enter a date to see which products are discounted on that date:");
+        out.println("Enter a date to see which products are discounted on that date:");
         LocalDate date = getDate();
-        System.out.println();
+        out.println();
 
         printOffers(date);
     }
 
     private LocalDate getDate() {
-        return null;
+        while (true) {
+            out.println("Enter a date (YYYY-MM-DD): ");
+            String input = scanner.nextLine();
+            try {
+                return LocalDate.parse(input);
+            } catch (Exception e) {
+                out.println("Invalid date format. Please try again.");
+            }
+        }
     }
 
     private void printCatalog() {
+        out.println("Product Catalog: ");
+        List<Product> products = productProvider.getProducts();
+        for (Product product : products) {
+            out.println(product);
+        }
+        out.println();
     }
 
     private void printPromotions() {
+        out.println("Available Promotions");
+        List<Discount> discounts = discountProvider.getDiscounts();
+        for (Discount discount : discounts) {
+            out.println(discount);
+        }
+        out.println();
     }
 
     private void printOffers(LocalDate date) {
+        out.println("Offers for " + date + ": ");
+        List<Product> products = productProvider.getProducts();
+        for (Product product : products) {
+            Offer offer = discountService.getOffer(product, date);
+            if (!offer.discounts().isEmpty()) out.println(offer);
+        }
     }
 
     private List<Offer> getOffers(LocalDate date) {
