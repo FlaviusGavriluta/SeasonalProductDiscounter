@@ -20,11 +20,19 @@ public enum Season {
         return months;
     }
 
-    public boolean contains(LocalDate date)
-    {
+    public boolean contains(LocalDate date) {
+        Month month = date.getMonth();
+        for (Season season : Season.values()) {
+            if (season.getMonths().contains(month)) return true;
+        }
+        return false;
     }
 
     public Season shift(int amount) {
+        Season[] seasons = Season.values();
+        int currentIndex = this.ordinal();
+        int shiftedIndex = (currentIndex + amount) % seasons.length;
+        if (shiftedIndex < 0) shiftedIndex += seasons.length;
+        return seasons[shiftedIndex];
     }
-
 }
