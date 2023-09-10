@@ -2,21 +2,20 @@ package com.codecool.service.logger;
 
 import java.time.LocalDateTime;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 public class ConsoleLogger implements Logger {
     @Override
     public void logInfo(String message) {
-        out.println(formatLogEntry("INFO", message));
+        out.println(createLogEntry("INFO", message));
     }
 
     @Override
     public void logError(String message) {
-        err.println(formatLogEntry("ERROR", message));
+        out.println(createLogEntry("ERROR", message));
     }
 
-    private String formatLogEntry(String type, String message) {
-        LocalDateTime timpstamp = LocalDateTime.now();
-        return String.format("[%s] %s: %s", timpstamp, type, message);
+    private String createLogEntry(String type, String message) {
+        return String.format("[%s] %s: %s", LocalDateTime.now(), type, message);
     }
 }

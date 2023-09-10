@@ -4,27 +4,20 @@ import com.codecool.model.products.Product;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Set;
 
-public record MonthlyDiscount() implements Discount {
+public record MonthlyDiscount(String name, int rate, Set<Month> months) implements Discount {
     @Override
     public boolean accepts(Product product, LocalDate date) {
-        int month = date.getMonthValue();
-        if (month == Month.JUNE.getValue() || month == Month.JULY.getValue()) return true;
-        return false;
-    }
-
-    @Override
-    public String name() {
-        return "Monthly Discount";
-    }
-
-    @Override
-    public int rate() {
-        return 10;
+        return months.stream().anyMatch(month -> month.getValue() == date.getMonthValue());
     }
 
     @Override
     public String toString() {
-        return name();
+        return "MonthlyDiscount{" +
+                "name='" + name + '\'' +
+                ", rate=" + rate +
+                ", months=" + months +
+                '}';
     }
 }

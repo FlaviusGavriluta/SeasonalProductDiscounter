@@ -14,8 +14,6 @@ public class DiscountProviderImpl implements DiscountProvider{
         discounts.add(new ColorDiscount());
         discounts.add(new SeasonalDiscount(Season.SUMMER));
         discounts.add(new SeasonalDiscount(Season.WINTER));
-        discounts.add(new OutletDiscount(Season.SUMMER));
-        discounts.add(new OutletDiscount(Season.WINTER));
     }
     @Override
     public List<Discount> getDiscounts() {

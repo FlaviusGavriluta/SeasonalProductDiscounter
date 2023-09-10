@@ -9,7 +9,6 @@ public enum Season {
     SUMMER(Set.of(Month.JUNE, Month.JULY, Month.AUGUST)),
     AUTUMN(Set.of(Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER)),
     WINTER(Set.of(Month.DECEMBER, Month.JANUARY, Month.FEBRUARY));
-
     private final Set<Month> months;
 
     Season(Set<Month> months) {
@@ -21,18 +20,13 @@ public enum Season {
     }
 
     public boolean contains(LocalDate date) {
-        Month month = date.getMonth();
-        for (Season season : Season.values()) {
-            if (season.getMonths().contains(month)) return true;
-        }
-        return false;
+        return this.months.contains(date.getMonth());
     }
 
     public Season shift(int amount) {
-        Season[] seasons = Season.values();
-        int currentIndex = this.ordinal();
-        int shiftedIndex = (currentIndex + amount) % seasons.length;
-        if (shiftedIndex < 0) shiftedIndex += seasons.length;
-        return seasons[shiftedIndex];
+        int index = this.ordinal();
+        int shifted = (index + amount) % Season.values().length;
+        if (shifted < 0) shifted += Season.values().length;
+        return Season.values()[shifted];
     }
 }

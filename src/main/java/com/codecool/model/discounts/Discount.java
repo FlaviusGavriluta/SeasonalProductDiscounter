@@ -11,4 +11,3 @@ public interface Discount {
 
     int rate();
 }
-
