@@ -13,7 +13,8 @@ import com.codecool.ui.SeasonalProductDiscounterUi;
 public class Application {
     public static void main(String[] args) {
         ProductProvider productProvider = new ProductProviderImpl();
-        DiscountProvider discountProvider = new DiscountProviderImpl();
+        Logger logger = new ConsoleLogger();
+        DiscountProvider discountProvider = new DiscountProviderImpl(logger);
         DiscountService discounterService = new DiscountServiceImpl(discountProvider);
         SeasonalProductDiscounterUi ui = new SeasonalProductDiscounterUi(productProvider,
                 discountProvider, discounterService);
