@@ -10,4 +10,3 @@ public interface DiscountService {
     Offer getOffer(Product product, LocalDate date);
 
 }
-

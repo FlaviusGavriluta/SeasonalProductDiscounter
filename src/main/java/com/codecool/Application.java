@@ -15,7 +15,7 @@ public class Application {
         ProductProvider productProvider = new ProductProviderImpl();
         Logger logger = new ConsoleLogger();
         DiscountProvider discountProvider = new DiscountProviderImpl(logger);
-        DiscountService discounterService = new DiscountServiceImpl(discountProvider);
+        DiscountService discounterService = new DiscountServiceImpl(discountProvider, logger);
         SeasonalProductDiscounterUi ui = new SeasonalProductDiscounterUi(productProvider,
                 discountProvider, discounterService);
         ui.run();
