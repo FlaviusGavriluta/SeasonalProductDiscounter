@@ -1,10 +1,12 @@
 package com.codecool.ui;
 
+import com.codecool.model.discounts.ColorDiscount;
 import com.codecool.model.discounts.Discount;
 import com.codecool.model.offers.Offer;
 import com.codecool.model.products.Product;
 import com.codecool.service.discounts.DiscountProvider;
 import com.codecool.service.discounts.DiscountService;
+import com.codecool.service.logger.ConsoleLogger;
 import com.codecool.service.products.ProductProvider;
 
 
@@ -96,4 +98,3 @@ public class SeasonalProductDiscounterUi {
         return discounted;
     }
 }
-
